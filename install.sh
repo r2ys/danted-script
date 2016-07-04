@@ -75,7 +75,8 @@ EOF
 }
 
 path=$(cd `dirname $0`;pwd )
-( [ -n "$(grep CentOS /etc/issue)" ] \
+( ( [ -n "$(grep CentOS /etc/issue)" ] \
+  || [ -n "$(grep CentOS /etc/centos-release)" ] )
   && ( yum install gcc g++ make vim pam-devel tcp_wrappers-devel unzip httpd-tools -y ) ) \
   || ( [ -n "$(grep -E 'Debian|Ubuntu' /etc/issue)" ] \
   && ( apt-get update ) \
