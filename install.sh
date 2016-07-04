@@ -9,7 +9,7 @@ DEFAULT_PAWD="danted"
 MASTER_IP="0.0.0.0/0"
 SERVERIP=$(ifconfig | grep 'inet addr' | grep -Ev 'inet addr:127.0.0|inet addr:192.168.0|inet addr:10.0.0' | sed -n 's/.*inet addr:\([^ ]*\) .*/\1/p')
 if [ -z "$SERVERIP" ]; then
-	SERVERIP=$(ifconfig | grep 'inet addr' | grep -Ev 'inet addr:127.0.0|inet addr:192.168.0|inet addr:10.0.0' | sed -n 's/.*inet :\([^ ]*\) .*/\1/p')
+	SERVERIP=$(ifconfig | grep 'inet ' | grep -Ev 'inet 127.0.0|inet 192.168.0|inet 10.0.0' | sed -n 's/.*inet \([^ ]*\) .*/\1/p')
 fi
 ###############################################------------Menu()---------#####################################################
 for _PARAMETER in $*
